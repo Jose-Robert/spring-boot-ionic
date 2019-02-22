@@ -8,10 +8,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.com.cursomc.domain.Categoria;
+import br.com.cursomc.domain.Produto;
 import br.com.cursomc.repositories.CategoriaRepository;
+import br.com.cursomc.repositories.ProdutoRepository;
 
 	@SpringBootApplication
 	public class CursomcApplication implements CommandLineRunner {
+		
+		@Autowired
+		private ProdutoRepository produtoRepository;
 		
 		@Autowired
 		private CategoriaRepository categoriaRepository;
@@ -25,8 +30,17 @@ import br.com.cursomc.repositories.CategoriaRepository;
 	
 			Categoria cat1 = new Categoria(null, "Informatica");
 			Categoria cat2 = new Categoria(null, "Escritorio");
+			
+			Produto p1 = new Produto(null,"Computador", 2000.00);
+			Produto p2 = new Produto(null,"Impressora", 800.00);
+			Produto p3 = new Produto(null,"Mouse", 80.00);
+			
+			p1.getCategorias().addAll(Arrays.asList(cat1));
+			p2.getCategorias().addAll(Arrays.asList(cat1,cat2));
+			p3.getCategorias().addAll(Arrays.asList(cat1));			
 	
 			categoriaRepository.save(Arrays.asList(cat1,cat2 ));
+			produtoRepository.save(Arrays.asList(p1,p2,p3));
 	
 		}
 	
