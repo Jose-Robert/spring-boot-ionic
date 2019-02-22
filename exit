@@ -1,0 +1,29 @@
+[33mcommit 96cc152454417e369488938e7ef32354e63b4a34[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: José Robert <robertspfc10@gmail.com>
+Date:   Tue Feb 19 00:40:02 2019 -0300
+
+    Criando repository e service para categoria
+
+[33mcommit 8366767b79a568af03c00673457bb6877347ce21[m
+Author: José Robert <robertspfc10@gmail.com>
+Date:   Mon Feb 18 23:43:09 2019 -0300
+
+    Banco de dados h2 e a criação da base de dados
+
+[33mcommit add4ab746c486bd45a214480bdd3f94d5a93c353[m
+Author: José Robert <robertspfc10@gmail.com>
+Date:   Mon Feb 18 12:44:30 2019 -0300
+
+    Testando a primeira classe de dominio - Categoria
+
+[33mcommit d9f951d06f68f3a19d2c59b0a9f87a60828f0ef2[m
+Author: José Robert <robertspfc10@gmail.com>
+Date:   Sun Feb 17 23:57:35 2019 -0300
+
+    REST testado
+
+[33mcommit 3db5f73b1b223c2b23675c9b79a40bd45bffc4b9[m
+Author: José Robert <robertspfc10@gmail.com>
+Date:   Sun Feb 17 23:33:58 2019 -0300
+
+    projeto criado
