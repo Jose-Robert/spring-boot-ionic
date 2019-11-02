@@ -1,13 +1,13 @@
 package br.com.cursomc.dto;
 
-import java.io.Serializable;
-
+import br.com.cursomc.domain.Cliente;
+import br.com.cursomc.service.validation.ClienteUpdate;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.cursomc.domain.Cliente;
-
+import java.io.Serializable;
+@ClienteUpdate
 public class ClienteDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
