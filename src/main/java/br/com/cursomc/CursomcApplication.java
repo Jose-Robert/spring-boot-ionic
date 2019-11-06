@@ -1,36 +1,17 @@
 package br.com.cursomc;
 
 
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-
+import br.com.cursomc.domain.*;
+import br.com.cursomc.domain.enums.EstadoPagamento;
+import br.com.cursomc.domain.enums.TipoCliente;
+import br.com.cursomc.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.com.cursomc.domain.Categoria;
-import br.com.cursomc.domain.Cidade;
-import br.com.cursomc.domain.Cliente;
-import br.com.cursomc.domain.Endereco;
-import br.com.cursomc.domain.Estado;
-import br.com.cursomc.domain.ItemPedido;
-import br.com.cursomc.domain.Pagamento;
-import br.com.cursomc.domain.PagamentoComBoleto;
-import br.com.cursomc.domain.PagamentoComCartao;
-import br.com.cursomc.domain.Pedido;
-import br.com.cursomc.domain.Produto;
-import br.com.cursomc.domain.enums.EstadoPagamento;
-import br.com.cursomc.domain.enums.TipoCliente;
-import br.com.cursomc.repositories.CategoriaRepository;
-import br.com.cursomc.repositories.CidadeRepository;
-import br.com.cursomc.repositories.ClienteRepository;
-import br.com.cursomc.repositories.EnderecoRepository;
-import br.com.cursomc.repositories.EstadoRepository;
-import br.com.cursomc.repositories.ItemPedidoRepository;
-import br.com.cursomc.repositories.PagamentoRepository;
-import br.com.cursomc.repositories.PedidoRepository;
-import br.com.cursomc.repositories.ProdutoRepository;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 
 
 	@SpringBootApplication
@@ -74,13 +55,37 @@ import br.com.cursomc.repositories.ProdutoRepository;
 			Produto p1 = new Produto(null,"Computador", 2000.00);
 			Produto p2 = new Produto(null,"Impressora", 800.00);
 			Produto p3 = new Produto(null,"Mouse", 80.00);
-			
-			p1.getCategorias().addAll(Arrays.asList(cat1));
-			p2.getCategorias().addAll(Arrays.asList(cat1,cat2));
-			p3.getCategorias().addAll(Arrays.asList(cat1));			
+			Produto p4 = new Produto(null, "Mesa de escritorio", 300.00);
+			Produto p5 = new Produto(null, "Toalha", 50.00);
+			Produto p6 = new Produto(null, "Colcha", 200.00);
+			Produto p7 = new Produto(null, "TV true color", 1200.00);
+			Produto p8 = new Produto(null, "Roçadeira", 800.00);
+			Produto p9 = new Produto(null, "Abajour", 100.00);
+			Produto p10 = new Produto(null, "Pendente", 180.00);
+			Produto p11 = new Produto(null, "Shampoo", 90.00);
+
+			cat1.getProdutos().addAll(Arrays.asList(p1,p2,p3));
+			cat2.getProdutos().addAll(Arrays.asList(p2,p4));
+			cat3.getProdutos().addAll(Arrays.asList(p5,p6));
+			cat4.getProdutos().addAll(Arrays.asList(p1,p2,p3,p7));
+			cat5.getProdutos().addAll(Arrays.asList(p8));
+			cat6.getProdutos().addAll(Arrays.asList(p9,p10));
+			cat7.getProdutos().addAll(Arrays.asList(p11));
+
+			p1.getCategorias().addAll(Arrays.asList(cat1, cat4));
+			p2.getCategorias().addAll(Arrays.asList(cat1, cat2, cat4));
+			p3.getCategorias().addAll(Arrays.asList(cat1, cat4));
+			p4.getCategorias().addAll(Arrays.asList(cat2));
+			p5.getCategorias().addAll(Arrays.asList(cat3));
+			p6.getCategorias().addAll(Arrays.asList(cat3));
+			p7.getCategorias().addAll(Arrays.asList(cat4));
+			p8.getCategorias().addAll(Arrays.asList(cat5));
+			p9.getCategorias().addAll(Arrays.asList(cat6));
+			p10.getCategorias().addAll(Arrays.asList(cat6));
+			p11.getCategorias().addAll(Arrays.asList(cat7));
 	
 			categoriaRepository.save(Arrays.asList(cat1,cat2, cat3, cat4, cat5, cat6, cat7));
-			produtoRepository.save(Arrays.asList(p1,p2,p3));
+			produtoRepository.save(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 			
 			Estado est1 = new Estado(null, "Minas Gerais");
 			Estado est2 = new Estado(null, "São Paulo");
