@@ -7,12 +7,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import br.com.cursomc.domain.enums.EstadoPagamento;
+import lombok.NoArgsConstructor;
 
 @Entity
+@JsonTypeName("pagamentoComBoleto")
+@NoArgsConstructor
 public class PagamentoComBoleto extends Pagamento {
-	
+	private static final long serialVersionUID = 1L;
+
 	@JsonFormat(pattern="dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
