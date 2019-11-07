@@ -14,12 +14,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import br.com.cursomc.domain.enums.EstadoPagamento;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@EqualsAndHashCode
 @Inheritance(strategy=InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type")
 public class Pagamento implements Serializable{

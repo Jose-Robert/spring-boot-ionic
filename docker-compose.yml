@@ -1,0 +1,16 @@
+version: '2'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING.DATASOURCE.URL=jdbc:h2:mem:testdb
+      - SPRING.DATASOURCE.USERNAME=sa
+      - SPRING.DATASOURCE.PASSWORD=
+      - SPRING.JPA.SHOW-SQL=true
+      - SPRING.JPA.PROPERTIES.HIBERNATE.FORMAT_SQL=true 
+    image: cursomc
+    ports:
+      - 8080:8080
