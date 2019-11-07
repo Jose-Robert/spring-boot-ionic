@@ -6,11 +6,16 @@ services:
       dockerfile: Dockerfile
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-      - SPRING.DATASOURCE.URL=jdbc:h2:mem:testdb
+      - SPRING.DATASOURCE.DRIVERCLASSNAME=org.h2.Driver
+      - SPRING.DATASOURCE.URL=jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
       - SPRING.DATASOURCE.USERNAME=sa
       - SPRING.DATASOURCE.PASSWORD=
       - SPRING.JPA.SHOW-SQL=true
-      - SPRING.JPA.PROPERTIES.HIBERNATE.FORMAT_SQL=true 
+      - SPRING.JPA.PROPERTIES.HIBERNATE.FORMAT_SQL=true
+      - SPRING.JPA.DATABASE-PLATFORM=org.hibernate.dialect.H2Dialect
+      - SPRING.JPA.HIBERNATE.DDL-AUTO=update
+      - SPRING.H2.CONSOLE.ENABLED=true
+      - SPRING.H2.CONSOLE.PATH=/h2-console
     image: cursomc
     ports:
       - 8080:8080
