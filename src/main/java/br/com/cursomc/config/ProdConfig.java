@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Profile;
 import br.com.cursomc.service.DBService;
 
 @Configuration
-@Profile("prod")
-public class DevConfig {
+@Profile("dev")
+public class ProdConfig {
 	
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String strategy;
