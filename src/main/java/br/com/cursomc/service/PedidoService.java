@@ -37,7 +37,11 @@ public class PedidoService {
 	private ItemPedidoRepository itemPedidoRepository;
 	
 	@Autowired
+<<<<<<< Updated upstream
 	private ClienteRepository clienteRepository;
+=======
+	private EmailService emailService;
+>>>>>>> Stashed changes
 	
 	public Pedido find(Integer id) {
 		Pedido obj = repo.findOne(id);
@@ -67,7 +71,11 @@ public class PedidoService {
 			ip.setPedido(obj);
 		}
 		itemPedidoRepository.save(obj.getItens());
+<<<<<<< Updated upstream
 		System.out.println(obj);
+=======
+		emailService.sendOrderConfirmationEmail(obj);
+>>>>>>> Stashed changes
 		return obj;
 	}
 		
