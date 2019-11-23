@@ -1,21 +1,35 @@
-version: '2'
-services:
+version: '3.3' 
+services: 
   app:
-    build:
-      context: .
       dockerfile: Dockerfile
-    environment:
-      - SPRING_PROFILES_ACTIVE=dev
-      - SPRING.DATASOURCE.DRIVERCLASSNAME=org.h2.Driver
-      - SPRING.DATASOURCE.URL=jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
-      - SPRING.DATASOURCE.USERNAME=sa
-      - SPRING.DATASOURCE.PASSWORD=
-      - SPRING.JPA.SHOW-SQL=true
-      - SPRING.JPA.PROPERTIES.HIBERNATE.FORMAT_SQL=true
-      - SPRING.JPA.DATABASE-PLATFORM=org.hibernate.dialect.H2Dialect
-      - SPRING.JPA.HIBERNATE.DDL-AUTO=update
-      - SPRING.H2.CONSOLE.ENABLED=true
-      - SPRING.H2.CONSOLE.PATH=/h2-console
-    image: cursomc
-    ports:
-      - 8080:8080
+      environment:
+         SPRING_PROFILES_ACTIVE: dev
+         CURSOMC_DB_POSTGRESQL: postgres
+         CURSOMC_DB_PORT: 5432
+         CURSOMC_DB_DATABASE: curso_spring
+         CURSOMC_DB_USERNAME: postgres
+         CURSOMC_DB_PASSWORD: admin
+      image: cursomc
+      ports:
+         -8080:8080
+      depends_on:
+         - postgres
+      links:
+         - postgres:postgres
+postgres:
+        image: postgres
+        environment:
+          POSTGRES_DB: curso_spring
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: admin
+        ports:
+          - 5432:5432
+pgadmin:
+       image: dpage/pgadmin4
+       environment:
+         PGADMIN_DEFAULT_EMAIL: "robert.suporteweb@gmail.com"
+         PGADMIN_DEFAULT_PASSWORD: "admin"
+       ports:
+         - "16543:80"
+       depends_on:
+         - postgress

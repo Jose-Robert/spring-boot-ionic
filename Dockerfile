@@ -1,5 +1,7 @@
 FROM openjdk:12
 
+ENV TZ America/Recife
+
 MAINTAINER José Robert
 
 VOLUME [ "/var/lib/docker/volumes/cursomc" ]

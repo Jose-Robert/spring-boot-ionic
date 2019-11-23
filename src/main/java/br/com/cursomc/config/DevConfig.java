@@ -9,9 +9,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import br.com.cursomc.service.DBService;
+import br.com.cursomc.service.EmailService;
+import br.com.cursomc.service.SmtpEmailService;
 
 @Configuration
-@Profile("prod")
+@Profile("dev")
 public class DevConfig {
 	
 	@Value("${spring.jpa.hibernate.ddl-auto}")
@@ -29,5 +31,10 @@ public class DevConfig {
 		
 		dbService.instantiateTestDatabase();
 		return true;
+	}
+	
+	@Bean
+	public EmailService emailService() {
+		return new SmtpEmailService();
 	}
 }
