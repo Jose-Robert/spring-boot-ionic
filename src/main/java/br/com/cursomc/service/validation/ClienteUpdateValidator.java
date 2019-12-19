@@ -1,18 +1,20 @@
 package br.com.cursomc.service.validation;
 
-import br.com.cursomc.domain.Cliente;
-import br.com.cursomc.dto.ClienteDTO;
-import br.com.cursomc.repositories.ClienteRepository;
-import br.com.cursomc.resources.exception.FieldMessage;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.HandlerMapping;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.HandlerMapping;
+
+import br.com.cursomc.domain.Cliente;
+import br.com.cursomc.dto.ClienteDTO;
+import br.com.cursomc.repositories.ClienteRepository;
+import br.com.cursomc.resources.exception.FieldMessage;
 
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
 
@@ -26,6 +28,7 @@ public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate
     public void initialize(ClienteUpdate ann) {
     }
 
+    @SuppressWarnings("all")
     @Override
     public boolean isValid(ClienteDTO objDto, ConstraintValidatorContext context) {
 
